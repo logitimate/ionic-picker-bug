@@ -25,6 +25,12 @@ export class HomePage {
   constructor(private pickerController: PickerController) {}
 
   async openPicker() {
+    this.colors.forEach((color) => {
+      delete color.transform;
+      delete color.duration;
+      delete color.selected;
+    });
+
     const picker = await this.pickerController.create({
       columns: [
         {
